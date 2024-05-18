@@ -1,0 +1,10 @@
+<p>{{city}}</p>
+<form (ngSubmit)="addCity(city)">
+<input type="text" name="city" [(ngModel)]="city">
+
+<p>{{messageService.cities | json}}</p>
+<button type="submit">Añadir</button>
+<button type="button" (click)="onClear()">Limpiar</button>
+</form>
+
+<app-list-message></app-list-message>

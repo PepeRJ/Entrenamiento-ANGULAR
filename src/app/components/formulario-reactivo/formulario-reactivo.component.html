@@ -1,0 +1,41 @@
+
+<pre>{{contactForm.value | json}}</pre>
+<h1>FORMULARIO REACTIVO</h1>
+<h2>Aqui tienes el id {{id}}, que me llega por la URL, con queryParams</h2>
+<h2>Tambien me llega otra propiedad, como un nombre {{nombre}}</h2>
+
+<form  (ngSubmit)="onSubmit()" [formGroup]="contactForm">
+    <div>
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" name="nombre" formControlName="nombre" >
+    <p *ngIf="contactForm.get('nombre')?.touched && contactForm.get('nombre')?.errors?.['required']">Este campo es requerido</p>
+    <p *ngIf="contactForm.get('nombre')?.touched && contactForm.get('nombre')?.errors?.['minlength'] ">El nombre tiene que tener como mínimo 3 carácteres</p>
+</div>
+<div>
+    <p>Tienes más de 18 años?</p>
+    <label for="checkAdult1">Sí</label>
+    <input type="radio" value="si" id="checkAdult1" name="checkAdult" formControlName="checkAdult" >
+    <label for="checkAdult2">No</label>
+    <input type="radio" value="no" id="checkAdult2" name="checkAdult" formControlName="checkAdult" >
+    <p *ngIf="contactForm.get('checkAdult')?.touched && contactForm.get('cheackAdult')?.errors?.['required']">Este campo es requerido</p>
+</div>
+<div>
+    <label for="trabajo">De que trabajas?</label>
+    <select name="trabajo" id="trabajo" formControlName="trabajo">
+       <option value="" selected hidden >--selecciona una opción</option>
+       <option value="programador">Programador</option>
+       <option value="camarero">Camarero</option>
+       <option value="jardinero">Jardinero</option>
+    </select>
+    <p *ngIf="contactForm.get('trabajo')?.touched && contactForm.get('trabajo')?.errors?.['required']">Este campo es requerido</p>
+</div>
+<div>
+<p>Comentario</p>
+<textarea name="comentario" id="comentario"  rows="4" placeholder="Escriba un comentario..." formControlName="comentario">
+</textarea>
+</div>
+<div>
+    <button type="submit" [disabled]="contactForm.invalid">Enviar</button>
+</div>
+</form>
+

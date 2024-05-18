@@ -1,0 +1,7 @@
+<h1>Componente hijo</h1>
+
+<!-- Output, enviando el emit desde el html -->
+<input type="text" (input) = "Hijo.emit(hijo)" [(ngModel)] = "hijo">
+<!-- Output, enviando el emit desde el controlador (.ts), a través de la función dale() -->
+<input type="text" (input) = "dale()" [(ngModel)] = "hijo">
+<p>{{hijo}}</p>

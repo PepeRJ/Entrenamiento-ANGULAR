@@ -1,0 +1,29 @@
+<nav>
+<ul>
+    <li>
+        <a routerlinkActive= "active" routerLink="/home">Home</a>
+    </li>
+    <li>
+        <a routerlinkActive= "active" routerLink="/comunicacion-padre-hijo">Input/Output</a>
+    </li>
+    <li>
+        <a  routerlinkActive= "active" routerLink="/servicio-componentes">Comunicación/servicios</a>
+    </li>
+    <li>
+        <a routerlinkActive= "active" routerLink="/servicio-HTTP">Servicios/HTTP</a>
+    </li>
+    <li>
+        <a routerlinkActive= "active"(click)="goToTemplate()">Formulario/template</a>
+    </li>
+    <li>
+        <a routerlinkActive= "active" (click)="goToReactive()">Formulario/reactive</a>
+    </li>
+    <li>
+        <a routerlinkActive= "active" routerLink="/pipe">Pipes</a>
+    </li>
+    <li>
+        <a *ngIf="autenticado" routerlinkActive= "active" routerLink="/permisos">Autenticado?</a>
+    </li>
+    
+</ul>
+</nav>

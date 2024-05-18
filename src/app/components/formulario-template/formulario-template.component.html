@@ -1,0 +1,43 @@
+
+<pre>{{contactForm.value | json}}</pre>
+<h1>FORMULARIO DE PLANTILLA</h1>
+<h2>Aqui tienes el id {{id}}, que me llega por la URL, con Params</h2>
+
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm.value)">
+    <div>
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" name="nombre" required minlength="3" [(ngModel)]="model.nombre" #nombre="ngModel">
+    <p *ngIf="nombre.errors?.['minlength'] && (nombre.dirty || nombre.touched)">
+        El nombre debe tener al menos 3 letras.
+    </p>
+
+    <p *ngIf="nombre.errors?.['required'] && nombre.touched">
+        Este campo es requerido
+    
+</div>
+<div>
+    <p>Tienes más de 18 años?</p>
+    <label for="checkAdult1">Sí</label>
+    <input type="radio" value="si" id="checkAdult1" name="checkAdult" [(ngModel)]="model.checkAdult" required #checkAdult="ngModel">
+    <label for="checkAdult2">No</label>
+    <input type="radio" value="no" id="checkAdult2" name="checkAdult" ngModel required>
+    <p *ngIf="checkAdult.invalid ">Este campo es requerido</p>
+</div>
+<div>
+    <label for="trabajo">De que trabajas?</label>
+    <select name="trabajo" id="trabajo"  required [(ngModel)]="model.trabajoo" #trabajo="ngModel" >
+       <option value="" selected hidden >--selecciona una opción</option>
+       <option value="programador">Programador</option>
+       <option value="camarero">Camarero</option>
+       <option value="jardinero">Jardinero</option>
+    </select>
+</div>
+<div>
+<p>Comentario</p>
+<textarea name="comentario" id="comentario"  rows="4" placeholder="Escriba un comentario..." [(ngModel)]="model.comentario">
+</textarea>
+</div>
+<div>
+    <button type="submit" [disabled]="contactForm.invalid" >Enviar</button>
+</div>
+</form>

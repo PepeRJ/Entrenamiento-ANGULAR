@@ -1,0 +1,7 @@
+<h1>Componente padre</h1>
+<input type="text" [(ngModel)] = "padre">
+<p>{{padre}}</p>
+<p></p>
+
+<app-hijo [hijo]="padre" (Hijo)="Padre($event)"></app-hijo>
+<app-hijo (Hijo)="Padre($event)"></app-hijo>

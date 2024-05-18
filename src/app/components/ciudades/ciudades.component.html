@@ -1,0 +1,20 @@
+<pre>{{ciudad}}</pre>
+
+<input type="text" [(ngModel)]="ciudad"> <button type="button" (click)="addCiudad(ciudad)">Añadir ciudad</button>
+<ul>
+    <li *ngFor="let ciudad of ciudades" (click)="seleccionarCiudad(ciudad)">
+    {{ciudad.name}} 
+    <button type="button" (click)="deleteCiudad(ciudad._id)">Eliminar</button>
+    <button type="button" (click)="updateCiudad(ciudad)">Actualizar</button>
+    <button type="button" (click)="getCiudad(ciudadSeleccionada)">GetCiudad</button>
+    </li>
+</ul>
+
+<div *ngIf="mostrarDetalles">
+    <p>Aquí tienes los detalles de la ciudad seleccionada</p>
+    <ul>
+        <li>{{ciudadSeleccionada?.name}}</li>
+        <li>{{ciudadSeleccionada?._id}}</li>
+    </ul>
+
+</div>

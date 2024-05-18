@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav{
+    background-color: rgb(136, 136, 164);
+
+}
+
+ul{
+    display: flex;
+    justify-content: center;
+    
+}
+
+li{
+    margin: 20px;
+    list-style: none;
+}
+
+a {
+    color:antiquewhite;
+    text-decoration: none;
+    cursor: pointer;
+}
+
